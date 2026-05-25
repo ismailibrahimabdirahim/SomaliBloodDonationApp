@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "SomaliBD",
+    "slug": "sbd",
+    "scheme": "sbd",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#D32F2F"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.somalibd.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "SomaliBD needs camera access for video calls.",
+        "NSMicrophoneUsageDescription": "SomaliBD needs microphone access for voice and video calls."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#D32F2F"
+      },
+      "package": "com.somalibd.app",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "plugins": [
+      "expo-web-browser",
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow SomaliBD to access your microphone."
+        }
+      ]
+    ]
+  }
+}
