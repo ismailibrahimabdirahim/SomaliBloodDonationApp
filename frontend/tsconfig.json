@@ -1,0 +1,13 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "ignoreDeprecations": "5.0",
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "src/lucide-react-native.d.ts"
+  ]
+}

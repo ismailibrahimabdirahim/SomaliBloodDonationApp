@@ -13,9 +13,10 @@ import profileRoutes from "./routes/profile";
 import requestRoutes from "./routes/requests";
 import messageRoutes from "./routes/messages";
 import notificationRoutes from "./routes/notifications";
+import adminRoutes from "./routes/admin";
+import inventoryRoutes from "./routes/inventory";
 
 // Models
-import { Notification } from "./models/Notification";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -176,6 +177,8 @@ async function startServer() {
   app.use("/api/requests", requestRoutes);
   app.use("/api/messages", messageRoutes);
   app.use("/api/notifications", notificationRoutes);
+  app.use("/api/admin", adminRoutes);
+  app.use("/api/inventory", inventoryRoutes);
 
   httpServer.listen(Number(PORT), "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);

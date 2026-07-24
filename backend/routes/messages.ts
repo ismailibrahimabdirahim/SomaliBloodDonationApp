@@ -70,15 +70,17 @@ router.get("/conversations", authMiddleware, async (req: any, res) => {
         const safeOtherEmail = otherEmail.toLowerCase();
         const user = userMap.get(safeOtherEmail);
         
-        // NO MORE DISAPPEARING: Use fallbacks if user is not found
+        // Only show conversations with users that exist in the database
+        if (!user) continue;
+        
         result.push({
           id: lastMsg._id,
-          recipientName: user?.name || "Sombdonate User",
+          recipientName: user.name,
           recipientEmail: otherEmail,
           lastMessage: lastMsg.text,
           time: lastMsg.time,
           unreadCount: unreadCounts.get(otherEmail) || 0,
-          avatar: user?.profileImage ? user.profileImage : `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || 'U')}&background=random&color=fff`,
+          avatar: user.profileImage ? user.profileImage : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'U')}&background=random&color=fff`,
         });
       } catch (loopErr) {
         console.error('[Conversations] Loop Error:', loopErr);
